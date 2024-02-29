@@ -20,7 +20,22 @@ def AORC_downloader (url,output_directory):
                 print("text file failed, check file and run again:", e)
             else:
                 print("Something failed please recheck url and downloadfolder again:")
+def netcdf_merger(path_to_netcdf_files, output_folder_path_and_name_of_merged_file):
+    # List all NetCDF files in the folder
+    file_paths = glob.glob(path_to_netcdf_files)
 
+    # Open all files and merge along the time dimension
+    ds_merged = xr.open_mfdataset(file_paths, combine='by_coords')
+
+    # Optionally, save the merged dataset to a new NetCDF file
+    ds_merged.to_netcdf(output_folder_path_and_name_of_merged_file)
+    
+def merge_to_daily(hourly_netcdf_file,vaiable_name,output_folder_path_and_name_of_daily_file):
+
+    data=xr.open_dataset(hourly_netcdf_file)
+    daily_dataset = data[vaiable_name].resample(time='D').sum()
+    daily_dataset = data[vaiable_name].resample(time='D', skipna=False).sum()
+    daily_dataset.to_netcdf(output_folder_path_and_name_of_daily_file)
         
 
         
