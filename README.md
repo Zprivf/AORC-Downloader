@@ -1,7 +1,7 @@
 # AORC-Downloader
 The AORC Downloader is a Python utility for downloading files and contents from AORC Website
 
-The AORC Downloader is a Python utility for downloading files and contents from a specified URL. It’s particularly useful for retrieving data related to climate or weather.
+The AORC Downloader is a Python utility for downloading precipitation and temprature filesfrom a AORC Website. It’s particularly useful for retrieving precipitation and temprature data used by the National Water Model (NWM) for different RFCs.
 
 Installation
 Make sure you have Python installed on your system.
@@ -14,14 +14,16 @@ Call the function with the desired URL and output directory.
 Example:
 Python
 
+
+import os
 from aorc_downloader import AORC_downloader
+url = "https://hydrology.nws.noaa.gov/aorc-historic/AORC_license_disclaimer.pdf"
 
-# Specify the URL and output directory
-url = "https://example.com/climate_data"
-output_directory = "data_output"
+# Define the output directory where the contents will be saved
+output_directory = "local_folder_path"
 
-# Download the contents
-AORC_downloader(url, output_directory)
+AORC_downloader (url,output_directory)
+
 
 The AORC_downloader function performs the following steps:
 
@@ -30,4 +32,4 @@ Downloads the contents of the specified URL (including subdirectories) using wge
 Handles exceptions and provides informative messages.
 Notes
 Ensure that you have the necessary permissions to access the URL.
-Adjust the function as needed for your specific use case.
+
