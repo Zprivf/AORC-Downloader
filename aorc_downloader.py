@@ -30,10 +30,17 @@ def netcdf_merger(path_to_netcdf_files, output_folder_path_and_name_of_merged_fi
     # Optionally, save the merged dataset to a new NetCDF file
     ds_merged.to_netcdf(output_folder_path_and_name_of_merged_file)
     
-def merge_to_daily(hourly_netcdf_file,vaiable_name,output_folder_path_and_name_of_daily_file):
+def sum_to_daily(hourly_netcdf_file,vaiable_name,output_folder_path_and_name_of_daily_file):
 
     data=xr.open_dataset(hourly_netcdf_file)
     daily_dataset = data[vaiable_name].resample(time='D').sum()
+    daily_dataset = data[vaiable_name].resample(time='D', skipna=False).sum()
+    daily_dataset.to_netcdf(output_folder_path_and_name_of_daily_file)
+    
+def avg_to_daily(hourly_netcdf_file,vaiable_name,output_folder_path_and_name_of_daily_file):
+
+    data=xr.open_dataset(hourly_netcdf_file)
+    daily_dataset = data[vaiable_name].resample(time='D').mean()
     daily_dataset = data[vaiable_name].resample(time='D', skipna=False).sum()
     daily_dataset.to_netcdf(output_folder_path_and_name_of_daily_file)
         
