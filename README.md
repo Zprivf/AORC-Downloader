@@ -22,8 +22,7 @@ output_directory = "data_output"
 
 # Download the contents
 AORC_downloader(url, output_directory)
-AI-generated code. Review and use carefully. More info on FAQ.
-Function Details
+
 The AORC_downloader function performs the following steps:
 
 Creates the output directory if it doesn’t exist.
