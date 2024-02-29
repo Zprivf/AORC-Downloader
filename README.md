@@ -1,5 +1,7 @@
 # AORC-Downloader
-The AORC Downloader is a Python utility for downloading files and contents from AORC Website
+
+
+The AORC Downloader is a Python utility for downloading Analysis of Record for Calibration (AORC), Hydrometeorological Dataset.
 
 The AORC Downloader is a Python utility for downloading precipitation and temprature filesfrom a AORC Website. It’s particularly useful for retrieving precipitation and temprature data used by the National Water Model (NWM) for different RFCs.
 
