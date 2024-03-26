@@ -1,3 +1,9 @@
+##############################
+# Python code to mdownload AORC 4km Data. 
+# Fitsume Wolkeba
+# fwolkeba@crimson.ua.edu
+# Last edited: 3/26/2024
+#############################
 import os
 def AORC_downloader (url,output_directory):
 # Create the output directory if it doesn't exist
